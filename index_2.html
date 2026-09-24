@@ -1,9 +1,10 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Menu Dashboard — B·Heaven</title>
+<title>FOOD MENU — B·Heaven (Copy)</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -26,38 +27,40 @@
   }
 
   /* ============ APP SHELL (tabbed: Editor | Preview) ============ */
-  .app { display: block; min-height: 100vh; }
+  .app { display: block; min-height: 100vh; overflow-x: hidden; }
+  * { box-sizing: border-box; }
 
   .tabbar {
     position: sticky; top: 0; z-index: 50;
     direction: rtl;
-    display: flex; gap: 6px; align-items: center; justify-content: flex-start;
-    padding: 10px 14px;
+    display: flex; gap: 10px; align-items: center; justify-content: center;
+    padding: 14px 14px;
     background: var(--panel);
-    border-bottom: 1px solid var(--line);
-    padding-top: calc(10px + env(safe-area-inset-top, 0px));
+    border-bottom: 2px solid var(--line);
+    padding-top: calc(14px + env(safe-area-inset-top, 0px));
   }
   .tab {
     font-family: 'Cairo', sans-serif;
-    font-size: 13.5px; font-weight: 700;
-    padding: 8px 18px; border-radius: 999px; border: 1px solid transparent;
+    font-size: 14px; font-weight: 800;
+    padding: 12px 24px; border-radius: 10px; border: 2px solid transparent;
     background: transparent; color: var(--muted); cursor: pointer;
-    transition: background .15s ease, color .15s ease;
+    transition: all .2s ease;
+    flex: 1; text-align: center; min-height: 42px; display: flex; align-items: center; justify-content: center;
   }
-  .tab:hover { color: var(--teal-deep); }
+  .tab:hover { background: rgba(0,0,0,0.05); color: var(--ink); }
   .tab[aria-selected="true"] {
-    background: var(--accent-bg); color: var(--teal-deep);
-    border-color: var(--teal);
+    background: var(--teal); color: #fff;
+    border-color: var(--teal); box-shadow: 0 2px 8px rgba(138, 171, 175, 0.3);
   }
 
   .view { display: none; }
   .view.active { display: block; }
 
   .editor-pane {
-    width: 100%; max-width: 760px; margin: 0 auto;
+    width: 100%; max-width: 720px; margin: 0 auto;
     direction: rtl; text-align: right;
     background: var(--panel);
-    padding: 1.4rem 1.4rem 6.5rem;
+    padding: 1.6rem 1.5rem 7rem;
   }
   .preview-pane {
     width: 100%;
@@ -69,14 +72,18 @@
   #previewRoot { width: 100%; max-width: 640px; }
 
   /* ============ EDITOR HEADER ============ */
-  .editor-header { margin-bottom: 1.2rem; }
+  .editor-header { margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--line); text-align: center; direction: rtl; }
   .editor-header h1 {
-    font-size: 19px; font-weight: 800; margin: 0 0 2px;
+    font-size: 20px; font-weight: 900; margin: 0 0 5px; color: var(--teal-deep); letter-spacing: 0.05em;
   }
-  .editor-header p { font-size: 12.5px; color: var(--muted); margin: 0; }
+  .editor-header p {
+    font-family: 'Cairo', sans-serif; font-size: 16px; font-weight: 700; color: var(--ink);
+    margin: 0 0 8px; direction: rtl; text-align: center;
+  }
+  .editor-header small { font-size: 11.5px; color: var(--muted); margin: 0; line-height: 1.5; display: block; direction: ltr; text-align: left; }
 
   .toolbar {
-    display: flex; gap: 8px; margin-bottom: 1.3rem; flex-wrap: wrap;
+    display: flex; gap: 7px; margin-bottom: 1.4rem; flex-wrap: wrap;
   }
   /* actions pinned to the bottom-right of the screen */
   .action-bar {
@@ -84,96 +91,215 @@
     right: 16px;
     bottom: calc(16px + env(safe-area-inset-bottom, 0px));
     direction: rtl;
-    display: flex; gap: 8px; align-items: center;
-    background: rgba(255,255,255,0.92);
-    backdrop-filter: blur(6px);
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    padding: 8px 10px;
-    box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+    display: flex; gap: 12px; align-items: center;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(12px);
+    border: 2px solid rgba(200,195,185,0.6);
+    border-radius: 16px;
+    padding: 12px 16px;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.15), 0 4px 12px rgba(0,0,0,0.08);
   }
   @media (max-width: 640px) {
-    .action-bar { left: 12px; right: 12px; justify-content: flex-start; flex-wrap: wrap; }
+    .action-bar { left: 10px; right: 10px; justify-content: center; flex-wrap: nowrap; gap: 10px; bottom: calc(10px + env(safe-area-inset-bottom, 0px)); padding: 11px 14px; border-radius: 14px; }
+    .btn { font-size: 13px; padding: 10px 18px; }
   }
   .btn {
     font-family: 'Cairo', sans-serif;
-    font-size: 13px; font-weight: 700;
-    padding: 9px 16px; border-radius: 8px; border: none;
-    cursor: pointer; transition: transform .1s ease, opacity .15s ease;
+    font-size: 13.5px; font-weight: 800;
+    padding: 11px 20px; border-radius: 10px; border: none;
+    cursor: pointer; transition: all .15s ease;
+    display: flex; align-items: center; gap: 6px; white-space: nowrap;
   }
-  .btn:active { transform: scale(0.97); }
-  .btn-primary { background: var(--teal-deep); color: #fff; }
-  .btn-primary:hover { opacity: 0.9; }
-  .btn-ghost { background: var(--accent-bg); color: var(--teal-deep); }
-  .btn-ghost:hover { opacity: 0.85; }
+  .btn:active { transform: scale(0.95); }
+  .btn-primary {
+    background: var(--teal-deep); color: #fff;
+    box-shadow: 0 4px 12px rgba(95,132,137,0.35);
+    font-weight: 900;
+  }
+  .btn-primary:hover { background: #4a7a80; box-shadow: 0 6px 16px rgba(95,132,137,0.4); }
+  .btn-ghost { background: #f0ebe3; color: var(--ink); border: 1.5px solid #d5cfc5; }
+  .btn-ghost:hover { background: #e6e0d6; border-color: #c0bbb3; }
   .save-indicator {
-    font-size: 11.5px; color: var(--muted); align-self: center;
-    margin-right: 4px;
+    font-size: 11px; color: var(--muted); align-self: center;
+    margin-right: 2px; white-space: nowrap;
   }
+
+  /* ============ PAGE GROUP LABEL ============ */
+  .page-group-label {
+    display: flex; align-items: center; gap: 10px;
+    margin: 18px 0 10px; direction: rtl;
+  }
+  .page-group-label::before, .page-group-label::after {
+    content: ''; flex: 1; height: 1px; background: var(--line);
+  }
+  .page-group-label span {
+    font-size: 10.5px; font-weight: 700; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 0.08em;
+    white-space: nowrap; padding: 0 4px;
+  }
+  .page-group-label:first-child { margin-top: 0; }
+
+  /* ============ DRAG HANDLE ============ */
+  .drag-dots {
+    display: inline-flex; align-items: center; flex-shrink: 0;
+    color: #c0bbb3; cursor: grab; padding: 2px;
+    transition: color .15s;
+  }
+  .drag-dots:hover { color: #999690; }
 
   /* ============ ACCORDION SECTIONS ============ */
   .sec {
-    border: 1px solid var(--line); border-radius: 10px;
-    margin-bottom: 10px; overflow: hidden; background: var(--panel);
+    border: 1px solid #e5e0d8; border-radius: 12px;
+    margin-bottom: 8px; overflow: hidden; background: #f5f3f0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
   }
   .sec-head {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 12px 14px; cursor: pointer; background: var(--accent-bg);
-    user-select: none;
+    display: flex; align-items: center;
+    padding: 13px 14px; cursor: pointer;
+    background: #EAE4D9;
+    user-select: none; gap: 10px; direction: ltr;
   }
-  .sec-head h2 {
-    font-size: 14.5px; font-weight: 800; margin: 0; color: var(--teal-deep);
-    direction: rtl; text-align: right;
-  }
+  .sec.open .sec-head { border-bottom: 1px solid #d5cfc5; }
   .sec-head .chev {
-    font-size: 12px; color: var(--teal-deep); transition: transform .2s ease;
+    font-size: 13px; color: #888; transition: transform .2s ease; flex-shrink: 0;
   }
   .sec.open .sec-head .chev { transform: rotate(180deg); }
-  .sec-body { display: none; padding: 10px 14px 14px; }
+  .sec-title-input {
+    font-family: 'Cairo', sans-serif; font-size: 14.5px; font-weight: 800;
+    color: var(--ink); direction: rtl; text-align: right;
+    background: transparent; border: none; outline: none;
+    border-bottom: 1.5px solid transparent; padding: 0;
+    flex: 1; min-width: 0; cursor: pointer;
+    transition: border-color .15s ease;
+  }
+  .sec-title-input:focus { border-bottom-color: var(--teal-deep); cursor: text; }
+  .sec-body { display: none; padding: 10px 10px 12px; }
   .sec.open .sec-body { display: block; }
+  .sec.open .field-row { background: #fbf9f6; }
+  .sec.open .field-box { background: #fbf9f6; }
 
+  /* ============ ITEM CARDS ============ */
   .field-row {
-    display: grid; grid-template-columns: 1fr 90px;
-    gap: 8px; align-items: start;
-    padding: 9px 0; border-bottom: 1px dashed var(--line);
+    display: flex; align-items: center;
+    background: #f5f3f0; border: 1px solid #e5e0d8;
+    border-radius: 10px; margin-bottom: 8px;
+    direction: rtl; overflow: hidden;
   }
-  .field-row:last-child { border-bottom: none; }
-  .field-name-label {
-    font-size: 13px; font-weight: 700; color: var(--ink);
-    margin-bottom: 4px;
+  .field-row:last-child { margin-bottom: 0; }
+  /* RTL order: drag-dots(right) → content → price → trash(left) */
+  .item-drag-col {
+    display: flex; align-items: flex-start; padding: 14px 12px 14px 6px; flex-shrink: 0;
+    padding-top: 16px;
   }
-  .field-name-label .idx { color: var(--muted); font-weight: 400; font-size: 11px; }
-  input.f-name, textarea.f-desc, input.f-extra {
+  .item-content-col {
+    flex: 1; min-width: 0; padding: 10px 0 10px 8px; direction: rtl;
+    display: flex; flex-direction: column; gap: 0;
+  }
+  .field-box {
+    background: #f5f3f0; border: 1px solid #e5e0d8; border-radius: 8px;
+    padding: 10px 12px; display: flex; align-items: center;
+    margin-bottom: 8px;
+  }
+  .field-box.name-box { min-height: 38px; }
+  .field-box.desc-box { align-items: flex-start; min-height: auto; }
+  input.f-name {
+    width: 100%; font-family: 'Cairo', sans-serif; font-size: 13.5px; font-weight: 800;
+    color: var(--ink); background: transparent; border: none; outline: none;
+    direction: rtl; text-align: right; padding: 0; display: block;
+  }
+  input.f-name::placeholder { color: #ccc; font-weight: 600; }
+  textarea.f-desc {
     width: 100%; font-family: 'Cairo', sans-serif; font-size: 12.5px;
-    padding: 6px 8px; border: 1px solid var(--line); border-radius: 6px;
-    color: var(--ink); background: #fcfcfb;
-    direction: rtl; text-align: right;
+    color: var(--muted); background: transparent; border: none; outline: none;
+    direction: rtl; text-align: right; padding: 0; resize: none;
+    line-height: 1.5; display: block; overflow: hidden; min-height: 18px;
   }
-  input.f-name { font-weight: 700; margin-bottom: 5px; }
-  textarea.f-desc { resize: vertical; min-height: 40px; line-height: 1.4; }
-  input.f-extra { margin-top: 5px; color: var(--muted); }
+  textarea.f-desc::placeholder { color: #ddd; }
+  input.f-extra { display: none; }
+  .item-price-col {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 1px; flex-shrink: 0; width: 72px;
+    border-right: 1px solid #e8e4dc; border-left: 1px solid #e8e4dc;
+    padding: 10px 8px; align-self: stretch;
+  }
   input.f-price {
-    width: 100%; font-family: 'Cairo', sans-serif; font-size: 14px; font-weight: 700;
-    text-align: center; padding: 7px 4px; border: 1px solid var(--line);
-    border-radius: 6px; color: var(--teal-deep); background: #fcfcfb;
-    direction: ltr;
+    width: 100%; font-family: 'Cairo', sans-serif; font-size: 18px; font-weight: 800;
+    text-align: center; border: none; background: transparent; outline: none;
+    color: var(--ink); padding: 0; direction: ltr; line-height: 1;
   }
-  .price-hint { font-size: 9.5px; color: var(--muted); text-align: center; margin-top: 3px; }
+  .item-del-col {
+    display: flex; align-items: flex-start; padding: 14px 8px 14px 12px; flex-shrink: 0;
+    padding-top: 16px;
+  }
   .del-item-btn {
-    display: inline-block; width: auto; margin-top: 6px;
-    font-family: 'Cairo', sans-serif; font-size: 9px; font-weight: 600;
-    color: #b5544a; background: #fbecea; border: none; border-radius: 4px;
-    padding: 2px 7px; cursor: pointer; line-height: 1.5;
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 28px; height: 28px;
+    color: #c0544a; background: transparent; border: none;
+    border-radius: 6px; padding: 0; cursor: pointer;
+    transition: background .15s, color .15s;
   }
-  .del-item-btn:hover { opacity: 0.85; }
+  .del-item-btn:hover { background: #fbecea; color: #a03830; }
   .add-item-btn {
-    display: block; width: 100%; margin-top: 10px;
+    display: flex; align-items: center; justify-content: center; gap: 7px;
+    width: 100%; margin-top: 10px;
     font-family: 'Cairo', sans-serif; font-size: 13px; font-weight: 700;
-    color: var(--teal-deep); background: var(--accent-bg);
-    border: 1px dashed var(--teal); border-radius: 8px;
-    padding: 9px; cursor: pointer;
+    color: #999; background: transparent;
+    border: 1.5px dashed #d8d3c8; border-radius: 10px;
+    padding: 10px; cursor: pointer;
+    transition: color .15s, border-color .15s, background .15s;
   }
-  .add-item-btn:hover { background: #e3edee; }
+  .add-item-btn:hover { color: var(--ink); border-color: #b0a898; background: #f4f1ec; }
+  .btn-add-section {
+    display: flex; align-items: center; justify-content: center; gap: 7px;
+    width: 100%; max-width: 720px; margin: 20px auto 0;
+    font-family: 'Cairo', sans-serif; font-size: 13.5px; font-weight: 700;
+    color: var(--teal); background: transparent;
+    border: 2px solid var(--teal); border-radius: 10px;
+    padding: 12px; cursor: pointer;
+    transition: all .15s ease;
+  }
+  .btn-add-section:hover { background: var(--accent-bg); }
+  .main-title-field {
+    margin-bottom: 1.4rem;
+    background: #f5f3f0;
+    border-radius: 12px; padding: 14px 18px;
+    border: 1px solid #e5e0d8;
+  }
+  .main-title-label {
+    display: block; font-size: 10.5px; font-weight: 700; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px;
+    direction: ltr; text-align: left;
+  }
+  .main-title-input {
+    font-family: 'Cairo', sans-serif; font-size: 18px; font-weight: 900;
+    color: var(--teal); background: transparent;
+    border: none; border-bottom: 2px solid transparent; outline: none;
+    width: 100%; padding: 0; text-align: right;
+    transition: border-color .15s ease;
+  }
+  .main-title-input:focus { border-bottom-color: var(--teal); }
+  .footnote-field {
+    margin-top: 2rem;
+    margin-bottom: 1.4rem;
+    background: #f5f3f0;
+    border-radius: 12px; padding: 14px 18px;
+    border: 1px solid #e5e0d8;
+  }
+  .footnote-label {
+    display: block; font-size: 10.5px; font-weight: 700; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px;
+    direction: ltr; text-align: left;
+  }
+  .footnote-input {
+    font-family: 'Cairo', sans-serif; font-size: 12px; font-weight: 400;
+    color: var(--ink); background: transparent;
+    border: none; outline: none;
+    width: 100%; padding: 0; text-align: right; direction: rtl;
+    resize: none; line-height: 1.4; min-height: 50px;
+    transition: color .15s ease;
+  }
+  .footnote-input::placeholder { color: #ccc; }
+  .footnote-input:focus { color: var(--teal); }
 
   /* ============ PREVIEW: EXACT TEMPLATE PAGE ============ */
   .sheet {
@@ -192,38 +318,39 @@
     position: relative;
     padding: 15% 8% 4%;
   }
-  .page-title { text-align: center; margin: 0 0 4%; }
+  .page-title { text-align: center; margin: 0 0 3%; }
   .page-title h1 {
-    margin: 0; font-weight: 900; font-size: clamp(30px, 8vw, 46px);
-    color: var(--teal); line-height: 1;
+    margin: 0; font-weight: 900; font-size: clamp(24px, 8vw, 48px);
+    color: var(--teal); line-height: 1.2; word-break: break-word;
   }
-  .section { margin-bottom: 4%; }
   .section-title.f-sec-title {
     text-align: right; 
     display: block; width: 100%;
-    font-family: 'Cairo', sans-serif; font-size: 15px; font-weight: 800;
-    color: var(--teal-deep); background: transparent; border: 1px solid var(--teal);
-    border-radius: 4px; padding: 4px 9px; margin: 0 0 0.7rem;
+    font-family: 'Cairo', sans-serif; font-size: 18px; font-weight: 800;
+    color: var(--teal-deep); background: transparent;
+    border: none; outline: none; -webkit-appearance: none; appearance: none;
+    padding: 4px 0; margin: 0 0 0.7rem;
   }
   .item { position: relative; margin-bottom: 0.85rem; }
   .item-price {
     position: absolute; left: 0; top: 0;
     font-weight: 400; font-size: 16px; color: #111;
     white-space: nowrap; padding-top: 3px; direction: ltr;
+    display: flex; align-items: center; gap: 3px;
   }
-  .item-price::before {  
-    content: '';
-    display: inline-block; width: 18px; height: 18px;
-    background: url("data:image/svg+xml,${encodeURIComponent(currencyIcon)}") center/contain no-repeat;
-    margin: 0 6px 0 0; 
-    position: relative; top: 3px;
-  }
-  .item-text { padding-left: 58px; }
+  .item-text { padding-left: 66px; }
   .item-name { font-weight: 700; font-size: 16px; color: #111; text-align: right; margin: 0; }
   .item-name .extra { font-weight: 400; font-size: 12px; color: var(--muted); }
   .item-desc {
     text-align: right; font-weight: 400; font-size: 13px; color: var(--muted);
     line-height: 1.5; margin: 2px 0 0; white-space: pre-wrap;
+  }
+  .section { margin-bottom: 2%; }
+  .section-divider {
+    width: 65%; height: 2px;
+    background: #d0cac0;
+    margin: 0 0 2% auto;
+    border-radius: 2px;
   }
   .pagebreak { height: 1px; margin: 2.6rem 0; }
   .footnote {
@@ -232,9 +359,64 @@
   }
 
   /* ============ RESPONSIVE ============ */
+
+  /* Tablet */
   @media (max-width: 900px) {
-    .editor-pane { padding: 1.1rem 1rem 4rem; }
+    .editor-pane { padding: 1.1rem 1rem 5rem; max-width: 100%; }
     .preview-pane { padding: 1.2rem 0.8rem 4rem; }
+    #previewRoot { max-width: 100%; }
+  }
+
+  /* Mobile */
+  @media (max-width: 600px) {
+    .tabbar { padding: 12px 10px; padding-top: calc(12px + env(safe-area-inset-top, 0px)); gap: 8px; border-bottom: 2px solid var(--line); }
+    .tab { font-size: 13.5px; padding: 11px 18px; flex: 1; min-height: 44px; }
+    .editor-pane { padding: 0.9rem 0.85rem 5.5rem; }
+    .preview-pane { padding: 0.8rem 0.5rem 3.5rem; }
+    #previewRoot { max-width: 100%; }
+    .editor-header { padding-bottom: 0.75rem; margin-bottom: 1rem; }
+    .editor-header h1 { font-size: 16px; }
+    .editor-header p { font-size: 11.5px; }
+    .main-title-field { padding: 11px 14px; border-radius: 10px; }
+    .main-title-input { font-size: 20px; }
+    .page-group-label { margin: 12px 0 8px; }
+    .sec { border-radius: 10px; }
+    .sec-head { padding: 11px 12px; }
+    .sec-title-input { font-size: 13.5px; }
+    .sec-body { padding: 8px 8px 10px; }
+    .item-drag-col { padding: 12px 4px 12px 10px; }
+    .item-content-col { padding: 9px 0 9px 0; }
+    input.f-name { font-size: 13px; }
+    textarea.f-desc { font-size: 11.5px; }
+    .field-box { padding: 9px 10px; margin-bottom: 7px; }
+    .field-box.name-box { min-height: 36px; }
+    .item-price-col { width: 62px; padding: 8px 6px; }
+    input.f-price { font-size: 16px; }
+    .item-del-col { padding: 12px 10px 12px 6px; }
+    .del-item-btn { width: 26px; height: 26px; }
+    .add-item-btn { font-size: 12px; padding: 9px; margin-top: 8px; }
+    /* Preview */
+    .sheet-content { padding: 12% 6% 4%; }
+    .section-title.f-sec-title { font-size: 15px; }
+    .item { margin-bottom: 0.75rem; }
+    .item-name { font-size: 14px; }
+    .item-desc { font-size: 12px; }
+    .item-price { font-size: 14px; gap: 2px; }
+    .item-text { padding-left: 58px; }
+    .footnote { font-size: 10px; }
+    .section-divider { margin: 0 auto 1.8%; }
+  }
+
+  /* Very small phones */
+  @media (max-width: 400px) {
+    .tabbar { padding: 11px 8px; gap: 6px; }
+    .tab { font-size: 12.5px; padding: 10px 14px; min-height: 40px; }
+    .action-bar { padding: 11px 12px; gap: 10px; border-radius: 14px; }
+    .btn { padding: 10px 16px; font-size: 12.5px; }
+    .field-row { grid-template-columns: 1fr 68px; }
+    .sheet-content { padding: 10% 5% 4%; }
+    .item-price { font-size: 13px; }
+    .item-text { padding-left: 52px; }
   }
 
   /* ============ PRINT ============ */
@@ -263,31 +445,41 @@
     .app { display: block; }
     .view { display: none !important; }
     #previewView, #previewView.view { display: block !important; }
-    .preview-pane { padding: 0; display: block; height: auto; overflow: visible; }
+    .preview-pane { padding: 0; display: block; height: auto; overflow: visible; background-color: #ffffff !important; }
     .sheet {
       box-shadow: none; max-width: none; border-radius: 0;
       width: 5.4in; height: 9.6in;
       page-break-inside: avoid; page-break-after: always;
       -webkit-print-color-adjust: exact; print-color-adjust: exact;
       overflow: hidden;
+      background-image: none !important;
+      background-color: #ffffff !important;
     }
     .sheet:last-of-type { page-break-after: auto; }
     .sheet-content {
-      padding: 13% 7% 2%;
+      padding: 12% 6% 2%;
+      background-color: #ffffff !important;
     }
-    .page-title h1 { font-size: 26px !important; }
+    .page-title { margin: 0 0 3% !important; }
+    .page-title h1 { font-size: 22px !important; line-height: 1.3 !important; }
     .section-title { font-size: 11px !important; margin: 0 0 0.4rem !important; }
     .section { margin-bottom: 2% !important; }
     .item { margin-bottom: 0.4rem !important; }
-    .item-price { font-size: 9px !important; padding-top: 1px !important; }
+    .item-price { font-size: 9px !important; padding-top: 1px !important; gap: 2px !important; }
     .item-name { font-size: 9px !important; }
     .item-name .extra { font-size: 7px !important; }
     .item-desc { font-size: 7.5px !important; line-height: 1.35 !important; margin: 1px 0 0 !important; }
-    .item-text { padding-left: 32px !important; }
+    .item-text { padding-left: 40px !important; }
     .footnote { font-size: 6px !important; margin-top: 0.6rem !important; padding-top: 0.4rem !important; line-height: 1.5 !important; }
     .pagebreak { display: none; }
-    body { background: #fff; }
+    body { background: #ffffff !important; }
+    #previewRoot { background: #ffffff !important; }
   }
+
+.food-title-fast-update {
+  font-size: 1.15em;
+  font-weight: 700;
+}
 </style>
 </head>
 <body>
@@ -304,11 +496,26 @@
   <div class="view active" id="editorView" role="tabpanel">
   <div class="editor-pane no-print">
     <div class="editor-header">
-      <h1>Menu Dashboard</h1>
-      <p>Edit prices or text below, then switch to the Preview tab to see the finished menu. Click "Print / Save PDF" to get it as a PDF.</p>
+      <h1>B·Heaven</h1>
+      <p>FOOD MENU</p>
+      <small>Edit prices or text below, then switch to the Preview tab to see the finished menu. Click "Print / Save PDF" to get it as a PDF.</small>
     </div>
 
+    <div class="main-title-field no-print">
+      <label class="main-title-label">Main Title</label>
+      <input id="mainTitleInput" class="main-title-input" type="text" dir="rtl" />
+    </div>
     <div id="sectionsContainer"></div>
+    <button class="btn-add-section no-print" id="addSectionBtn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/>
+      </svg> Add Section
+    </button>
+
+    <div class="footnote-field no-print">
+      <label class="footnote-label">Footer Note</label>
+      <textarea id="footnoteInput" class="footnote-input" dir="rtl" placeholder="Add footer disclaimer or notes..."></textarea>
+    </div>
   </div>
   </div>
 
@@ -323,8 +530,8 @@
 
 <div class="action-bar no-print">
   <span class="save-indicator" id="saveIndicator"></span>
-  <button class="btn btn-ghost" id="resetBtn">↺ Reset to Original</button>
   <button class="btn btn-primary" id="downloadBtn">🖨️ Print / Save PDF</button>
+  <button class="btn btn-ghost" id="resetBtn">↺ Reset to Original</button>
 </div>
 
 <div id="customConfirmOverlay" class="custom-confirm-overlay no-print">
@@ -743,6 +950,7 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var n,r,i,a,
 const MENU_DATA = {
   pages: [
     {
+      title: "القائمة",
       sections: [
         {
           title: "مقبلات البار",
@@ -825,14 +1033,18 @@ const MENU_DATA = {
 const STORAGE_KEY = 'bheaven_menu_data_v1';
 let currentData = null;
 
-const currencyIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-  <path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-14.243L7.757 12 12 16.243 16.243 12 12 7.757z" fill="currentColor"/>
-</svg>`;
 
 function loadData() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
-    if (raw) return JSON.parse(raw);
+    if (raw) {
+      const data = JSON.parse(raw);
+      // Strip any placeholder "New Section" entries added via the removed button
+      data.pages.forEach(page => {
+        page.sections = page.sections.filter(s => s.title !== 'New Section');
+      });
+      return data;
+    }
   } catch (e) { /* ignore, fall back */ }
   return JSON.parse(JSON.stringify(MENU_DATA));
 }
@@ -854,12 +1066,35 @@ function renderEditor() {
   container.innerHTML = '';
   let secCounter = 0;
   currentData.pages.forEach((page, pIdx) => {
+    // Page group label
+    const pageLabel = document.createElement('div');
+    pageLabel.className = 'page-group-label';
+    pageLabel.innerHTML = `<span>صفحة ${pIdx + 1}</span>`;
+    container.appendChild(pageLabel);
+
     page.sections.forEach((section, sIdx) => {
       const sec = document.createElement('div');
       sec.className = 'sec';
       const head = document.createElement('div');
       head.className = 'sec-head';
-      head.innerHTML = `<h2>${section.title}</h2><span class="chev">▾</span>`;
+      const secDots = document.createElement('span');
+      secDots.className = 'drag-dots';
+      secDots.innerHTML = `<svg width="10" height="14" viewBox="0 0 10 14" fill="currentColor"><circle cx="2" cy="2" r="1.5"/><circle cx="8" cy="2" r="1.5"/><circle cx="2" cy="7" r="1.5"/><circle cx="8" cy="7" r="1.5"/><circle cx="2" cy="12" r="1.5"/><circle cx="8" cy="12" r="1.5"/></svg>`;
+      secDots.addEventListener('click', e => e.stopPropagation());
+      const titleInput = document.createElement('input');
+      titleInput.className = 'sec-title-input';
+      titleInput.value = section.title;
+      titleInput.addEventListener('click', e => e.stopPropagation());
+      titleInput.addEventListener('input', e => {
+        section.title = e.target.value;
+        saveData(); renderPreview();
+      });
+      const chev = document.createElement('span');
+      chev.className = 'chev';
+      chev.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>`;
+      head.appendChild(secDots);
+      head.appendChild(titleInput);
+      head.appendChild(chev);
       head.addEventListener('click', () => sec.classList.toggle('open'));
       sec.appendChild(head);
 
@@ -870,7 +1105,18 @@ function renderEditor() {
         const row = document.createElement('div');
         row.className = 'field-row';
 
-        const left = document.createElement('div');
+        // Drag handle col
+        const dragCol = document.createElement('div');
+        dragCol.className = 'item-drag-col';
+        dragCol.innerHTML = `<span class="drag-dots"><svg width="10" height="14" viewBox="0 0 10 14" fill="currentColor"><circle cx="2" cy="2" r="1.5"/><circle cx="8" cy="2" r="1.5"/><circle cx="2" cy="7" r="1.5"/><circle cx="8" cy="7" r="1.5"/><circle cx="2" cy="12" r="1.5"/><circle cx="8" cy="12" r="1.5"/></svg></span>`;
+
+        // Content col (name + desc in separate boxes)
+        const contentCol = document.createElement('div');
+        contentCol.className = 'item-content-col';
+
+        // Name box
+        const nameBox = document.createElement('div');
+        nameBox.className = 'field-box name-box';
         const nameInput = document.createElement('input');
         nameInput.className = 'f-name';
         nameInput.value = item.name;
@@ -879,61 +1125,69 @@ function renderEditor() {
           item.name = e.target.value;
           saveData(); renderPreview();
         });
-        left.appendChild(nameInput);
+        nameBox.appendChild(nameInput);
+        contentCol.appendChild(nameBox);
 
-        if (item.extra !== undefined) {
-          const extraInput = document.createElement('input');
-          extraInput.className = 'f-extra';
-          extraInput.placeholder = 'Extra note (optional)';
-          extraInput.value = item.extra || '';
-          extraInput.addEventListener('input', (e) => {
-            item.extra = e.target.value;
-            saveData(); renderPreview();
-          });
-          left.appendChild(extraInput);
-        }
-
+        // Description box
+        const descBox = document.createElement('div');
+        descBox.className = 'field-box desc-box';
         const descInput = document.createElement('textarea');
         descInput.className = 'f-desc';
         descInput.value = item.desc;
         descInput.placeholder = 'Description';
+        descInput.rows = 1;
         descInput.addEventListener('input', (e) => {
           item.desc = e.target.value;
+          e.target.style.height = 'auto';
+          e.target.style.height = e.target.scrollHeight + 'px';
           saveData(); renderPreview();
         });
-        left.appendChild(descInput);
+        descBox.appendChild(descInput);
+        contentCol.appendChild(descBox);
 
-        const right = document.createElement('div');
+        // Price col (price input + AED label)
+        const priceCol = document.createElement('div');
+        priceCol.className = 'item-price-col';
         const priceInput = document.createElement('input');
         priceInput.className = 'f-price';
-        priceInput.value = item.price;
+        priceInput.value = (item.price || '').replace(/\.00$/, '').replace(/\.٠٠$/, '');
         priceInput.addEventListener('input', (e) => {
           item.price = e.target.value;
           saveData(); renderPreview();
         });
-        right.appendChild(priceInput);
+        priceCol.appendChild(priceInput);
 
-
+        // Delete col
+        const delCol = document.createElement('div');
+        delCol.className = 'item-del-col';
         const delBtn = document.createElement('button');
         delBtn.className = 'del-item-btn';
         delBtn.type = 'button';
         delBtn.title = 'Remove item';
-        delBtn.textContent = '✕ Remove';
+        delBtn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg>`;
         delBtn.addEventListener('click', () => {
           section.items.splice(iIdx, 1);
           saveData(); renderEditor(); renderPreview();
         });
-        right.appendChild(delBtn);
+        delCol.appendChild(delBtn);
 
-        row.appendChild(left);
-        row.appendChild(right);
+        row.appendChild(dragCol);
+        row.appendChild(contentCol);
+        row.appendChild(priceCol);
+        row.appendChild(delCol);
         body.appendChild(row);
+
+        // Auto-size textarea
+        setTimeout(() => {
+          descInput.style.height = 'auto';
+          descInput.style.height = descInput.scrollHeight + 'px';
+        }, 0);
       });
 
       const addBtn = document.createElement('button');
       addBtn.className = 'add-item-btn';
       addBtn.type = 'button';
-      addBtn.textContent = '+ Add Item';
+      addBtn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg> Add Item`;
       addBtn.addEventListener('click', () => {
         section.items.push({ price: '٠.٠٠', name: 'New item', extra: '', desc: '' });
         saveData(); renderEditor(); renderPreview();
@@ -954,12 +1208,10 @@ function renderEditor() {
       secCounter++;
     });
   });
-  // restore previous open/closed state, or open first section by default
+  // restore previous open/closed state
   const allSecs = container.querySelectorAll('.sec');
   if (openStates.length === allSecs.length && openStates.some(Boolean)) {
     allSecs.forEach((s, i) => { if (openStates[i]) s.classList.add('open'); });
-  } else if (allSecs.length) {
-    allSecs[0].classList.add('open');
   }
 }
 
@@ -975,9 +1227,10 @@ function renderPreview() {
     const content = document.createElement('div');
     content.className = 'sheet-content';
 
-    content.innerHTML += `<div class="page-title"><h1>القائمة</h1></div>`;
+    const pageTitle = page.title || 'القائمة';
+    content.innerHTML += `<div class="page-title"><h1>${escapeHtml(pageTitle)}</h1></div>`;
 
-    page.sections.forEach(section => {
+    page.sections.forEach((section, sIdx) => {
       const secEl = document.createElement('div');
       secEl.className = 'section';
       let itemsHtml = '';
@@ -985,7 +1238,7 @@ function renderPreview() {
         const extraHtml = item.extra ? ` <span class="extra">${escapeHtml(item.extra)}</span>` : '';
         itemsHtml += `
           <div class="item">
-            <div class="item-price">${escapeHtml(item.price)}</div>
+            <div class="item-price">${fmtPrice(item.price)}</div>
             <div class="item-text">
               <p class="item-name">${escapeHtml(item.name)}${extraHtml}</p>
               <p class="item-desc">${escapeHtml(item.desc)}</p>
@@ -993,8 +1246,13 @@ function renderPreview() {
           </div>
         `;
       });
-      secEl.innerHTML = `<input type="text" class="section-title f-sec-title" value="${escapeHtml(section.title)}" />${itemsHtml}`;
+      secEl.innerHTML = `<div class="section-title f-sec-title">${escapeHtml(section.title)}</div>${itemsHtml}`;
       content.appendChild(secEl);
+      if (sIdx < page.sections.length - 1) {
+        const hr = document.createElement('div');
+        hr.className = 'section-divider';
+        content.appendChild(hr);
+      }
     });
 
     if (pIdx === currentData.pages.length - 1) {
@@ -1020,10 +1278,31 @@ function escapeHtml(str) {
   return div.innerHTML;
 }
 
+function fmtPrice(str) {
+  // Remove trailing .00 or .٠٠ (Arabic-Indic zeros)
+  return escapeHtml((str || '').replace(/\.00$/, '').replace(/\.٠٠$/, ''));
+}
+
 /* ---------- init ---------- */
 currentData = loadData();
 renderEditor();
 renderPreview();
+
+const mainTitleInput = document.getElementById('mainTitleInput');
+mainTitleInput.value = currentData.pages[0].title || 'القائمة';
+mainTitleInput.addEventListener('input', e => {
+  currentData.pages[0].title = e.target.value;
+  saveData();
+  renderPreview();
+});
+
+const footnoteInput = document.getElementById('footnoteInput');
+footnoteInput.value = currentData.footnote || '';
+footnoteInput.addEventListener('input', e => {
+  currentData.footnote = e.target.value;
+  saveData();
+  renderPreview();
+});
 
 function showCustomConfirm(message, onConfirm) {
   const overlay = document.getElementById('customConfirmOverlay');
@@ -1053,6 +1332,19 @@ document.getElementById('resetBtn').addEventListener('click', () => {
   });
 });
 
+document.getElementById('addSectionBtn').addEventListener('click', () => {
+  const newSection = { title: 'New Section', items: [{ price: '٠.٠٠', name: 'New item', extra: '', desc: '' }] };
+  currentData.pages[currentData.pages.length - 1].sections.push(newSection);
+  saveData();
+  renderEditor();
+  renderPreview();
+  // Scroll to the new section
+  setTimeout(() => {
+    const secs = document.querySelectorAll('.sec');
+    if (secs.length > 0) secs[secs.length - 1].scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, 0);
+});
+
 function flashIndicator(text) {
   const ind = document.getElementById('saveIndicator');
   ind.textContent = text;
@@ -1077,29 +1369,30 @@ async function buildPdfBytes(onProgress) {
   const sheets = Array.from(document.querySelectorAll('#previewRoot .sheet'));
   if (!sheets.length) throw new Error('nothing to export');
 
-  // html2canvas cannot measure a hidden element, so make sure the preview page
-  // is laid out while we render, then put the user back where they were.
+  // Always render at desktop width so the PDF looks identical regardless of
+  // whether the user is on mobile and which tab is currently active.
   const previewView = document.getElementById('previewView');
   const wasHidden = !previewView.classList.contains('active');
-  if (wasHidden) {
-    previewView.style.position = 'absolute';
-    previewView.style.left = '-10000px';
-    previewView.style.top = '0';
-    previewView.style.width = '900px';
-    previewView.classList.add('active');
-    await new Promise(r => setTimeout(r, 60));
-  }
+  const savedPos = previewView.style.position;
+  const savedLeft = previewView.style.left;
+  const savedTop = previewView.style.top;
+  const savedWidth = previewView.style.width;
+
+  previewView.style.position = 'absolute';
+  previewView.style.left = '-10000px';
+  previewView.style.top = '0';
+  previewView.style.width = '900px';
+  if (wasHidden) previewView.classList.add('active');
+  await new Promise(r => setTimeout(r, 80));
 
   try {
     return await renderSheetsToPdf(sheets, onProgress);
   } finally {
-    if (wasHidden) {
-      previewView.classList.remove('active');
-      previewView.style.position = '';
-      previewView.style.left = '';
-      previewView.style.top = '';
-      previewView.style.width = '';
-    }
+    if (wasHidden) previewView.classList.remove('active');
+    previewView.style.position = savedPos;
+    previewView.style.left = savedLeft;
+    previewView.style.top = savedTop;
+    previewView.style.width = savedWidth;
   }
 }
 
@@ -1113,13 +1406,15 @@ async function renderSheetsToPdf(sheets, onProgress) {
     await new Promise(r => setTimeout(r, 30));
 
     const canvas = await html2canvas(sheets[i], {
-      scale: 2,
+      scale: 3,
       backgroundColor: '#fdfdfc',
       useCORS: true,
-      logging: false
+      allowTaint: true,
+      logging: false,
+      imageTimeout: 0
     });
 
-    const imgData = canvas.toDataURL('image/jpeg', 0.92);
+    const imgData = canvas.toDataURL('image/png');
     const w = canvas.width;
     const h = canvas.height;
 
@@ -1128,7 +1423,7 @@ async function renderSheetsToPdf(sheets, onProgress) {
     } else {
       pdf.addPage([w, h], w > h ? 'l' : 'p');
     }
-    pdf.addImage(imgData, 'JPEG', 0, 0, w, h);
+    pdf.addImage(imgData, 'PNG', 0, 0, w, h);
   }
 
   return pdf.output('arraybuffer');
@@ -1187,3 +1482,5 @@ document.getElementById('downloadBtn').addEventListener('click', downloadMenuPdf
 </script>
 </body>
 </html>
+
+</body></html>
